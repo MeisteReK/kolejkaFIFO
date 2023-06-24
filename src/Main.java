@@ -13,25 +13,28 @@ public class Main {
         Order order3 = new Order("3", "Monitor", 6);
         orderQueue.enqueue(order3);
 
-        orderQueue.displayAllOrders();
+        Order order4 = new Order("4", "Procesor", 4);
+        orderQueue.enqueue(order4);
 
-        //Order processedOrder = orderQueue.dequeue();
-       // System.out.println("Processed Order: " + processedOrder.getOrderId() + ", " + processedOrder.getProductName());
+        //orderQueue.displayAllOrders();
 
-        //Order nextOrder = orderQueue.peek();
-        //System.out.println("Next Order: " + nextOrder.getOrderId() + ", " + nextOrder.getProductName());
+        Order processedOrder = orderQueue.dequeue();
+        System.out.println("Processed Order: " + processedOrder.getOrderId() + ", " + processedOrder.getProductName());
 
-        //Order processedOrder2 = orderQueue.dequeue();
-        //System.out.println("Processed Order: " + processedOrder2.getOrderId() + ", " + processedOrder2.getProductName());
+        Order nextOrder = orderQueue.peek();
+        System.out.println("Next Order: " + nextOrder.getOrderId() + ", " + nextOrder.getProductName());
 
-        //Order nextOrder2 = orderQueue.peek();
-        //System.out.println("Next Order: " + nextOrder2.getOrderId() + ", " + nextOrder2.getProductName());
+        Order processedOrder2 = orderQueue.dequeue();
+        System.out.println("Processed Order: " + processedOrder2.getOrderId() + ", " + processedOrder2.getProductName());
 
-        //Order processedOrder3 = orderQueue.dequeue();
-        //System.out.println("Processed Order: " + processedOrder3.getOrderId() + ", " + processedOrder3.getProductName());
+        Order nextOrder2 = orderQueue.peek();
+        System.out.println("Next Order: " + nextOrder2.getOrderId() + ", " + nextOrder2.getProductName());
 
-        //Order nextOrder3 = orderQueue.peek();
-        //System.out.println("Next Order: " + nextOrder3.getOrderId() + ", " + nextOrder3.getProductName());
+        Order processedOrder3 = orderQueue.dequeue();
+        System.out.println("Processed Order: " + processedOrder3.getOrderId() + ", " + processedOrder3.getProductName());
+
+        Order nextOrder3 = orderQueue.peek();
+        System.out.println("Next Order: " + nextOrder3.getOrderId() + ", " + nextOrder3.getProductName());
 
         // Przykład zarządzania produktami
         ProductManager productManager = new ProductManager();

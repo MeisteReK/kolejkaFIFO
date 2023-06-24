@@ -35,6 +35,18 @@ public class CustomerManager {
         }
     }
 
+    public void displayAllCustomers() {
+        List<Customer> customers = getAllCustomers();
+
+        for (Customer customer : customers) {
+            System.out.println("Customer ID: " + customer.getCustomerId());
+            System.out.println("First Name: " + customer.getFirstName());
+            System.out.println("Last Name: " + customer.getLastName());
+            System.out.println("Address: " + customer.getAddress());
+            System.out.println("-------------------------");
+        }
+    }
+
     public List<Customer> getAllCustomers() {
         List<Customer> customers = new ArrayList<>();
 

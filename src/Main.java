@@ -13,21 +13,22 @@ public class Main {
         Order order3 = new Order("3", "Monitor", 6);
         orderQueue.enqueue(order3);
 
+        orderQueue.displayAllOrders();
 
-        Order processedOrder = orderQueue.dequeue();
-        System.out.println("Processed Order: " + processedOrder.getOrderId() + ", " + processedOrder.getProductName());
+        //Order processedOrder = orderQueue.dequeue();
+       // System.out.println("Processed Order: " + processedOrder.getOrderId() + ", " + processedOrder.getProductName());
 
-        Order nextOrder = orderQueue.peek();
-        System.out.println("Next Order: " + nextOrder.getOrderId() + ", " + nextOrder.getProductName());
+        //Order nextOrder = orderQueue.peek();
+        //System.out.println("Next Order: " + nextOrder.getOrderId() + ", " + nextOrder.getProductName());
 
-        Order processedOrder2 = orderQueue.dequeue();
-        System.out.println("Processed Order: " + processedOrder2.getOrderId() + ", " + processedOrder2.getProductName());
+        //Order processedOrder2 = orderQueue.dequeue();
+        //System.out.println("Processed Order: " + processedOrder2.getOrderId() + ", " + processedOrder2.getProductName());
 
-        Order nextOrder2 = orderQueue.peek();
-        System.out.println("Next Order: " + nextOrder2.getOrderId() + ", " + nextOrder2.getProductName());
+        //Order nextOrder2 = orderQueue.peek();
+        //System.out.println("Next Order: " + nextOrder2.getOrderId() + ", " + nextOrder2.getProductName());
 
-        Order processedOrder3 = orderQueue.dequeue();
-        System.out.println("Processed Order: " + processedOrder3.getOrderId() + ", " + processedOrder3.getProductName());
+        //Order processedOrder3 = orderQueue.dequeue();
+        //System.out.println("Processed Order: " + processedOrder3.getOrderId() + ", " + processedOrder3.getProductName());
 
         //Order nextOrder3 = orderQueue.peek();
         //System.out.println("Next Order: " + nextOrder3.getOrderId() + ", " + nextOrder3.getProductName());
@@ -43,9 +44,10 @@ public class Main {
         // Przykład zarządzania klientami
         CustomerManager customerManager = new CustomerManager();
 
-        //Customer customer1 = new Customer("1", "Jackob", "Pro", "New-York");
-        //customerManager.addCustomer(customer1);
-        //customerManager.deleteCustomer("1");
+        //Customer customer2 = new Customer("2", "konrad", "Kowalski", "Rzeszow");
+        //customerManager.addCustomer(customer2);
+        //customerManager.deleteCustomer("2");
+        //customerManager.displayAllCustomers();
 
 
 

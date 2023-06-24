@@ -18,4 +18,15 @@ public class OrderQueue {
     public Order peek() {
         return queue.peek();
     }
+
+    public void displayAllOrders() {
+        for (Order order : queue) {
+            System.out.println("Order ID: " + order.getOrderId());
+            System.out.println("Product Name: " + order.getProductName());
+            System.out.println("Quantity: " + order.getQuantity());
+            System.out.println("-------------------------");
+        }
+    }
+
+
 }

@@ -1,43 +1,39 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerManager {
     private static final String CUSTOMERS_FILE = "customers.csv"; // Plik CSV przechowujący klientów
+    private List<Customer> customers;
+
+    public CustomerManager() {
+        customers = new ArrayList<>();
+        loadFromFile();
+    }
 
     public void addCustomer(Customer customer) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CUSTOMERS_FILE, true))) {
-            writer.write(customer.getCustomerId() + "," + customer.getFirstName() + "," + customer.getLastName() + "," + customer.getAddress());
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        customers.add(customer);
+        saveToFile();
     }
 
     public void deleteCustomer(String customerId) {
-        List<Customer> customers = getAllCustomers();
-
-        // Usuń klienta o wskazanym customerId
         customers.removeIf(customer -> customer.getCustomerId().equals(customerId));
+        saveToFile();
+    }
 
-        // Zapisz zmienioną zawartość do pliku CSV
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CUSTOMERS_FILE))) {
-            for (Customer customer : customers) {
-                writer.write(customer.getCustomerId() + "," + customer.getFirstName() + "," + customer.getLastName() + "," + customer.getAddress());
-                writer.newLine();
+    public void updateCustomer(Customer customer) {
+        for (Customer existingCustomer : customers) {
+            if (existingCustomer.getCustomerId().equals(customer.getCustomerId())) {
+                existingCustomer.setFirstName(customer.getFirstName());
+                existingCustomer.setLastName(customer.getLastName());
+                existingCustomer.setAddress(customer.getAddress());
+                break;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        saveToFile();
     }
 
     public void displayAllCustomers() {
-        List<Customer> customers = getAllCustomers();
-
         for (Customer customer : customers) {
             System.out.println("Customer ID: " + customer.getCustomerId());
             System.out.println("First Name: " + customer.getFirstName());
@@ -47,9 +43,7 @@ public class CustomerManager {
         }
     }
 
-    public List<Customer> getAllCustomers() {
-        List<Customer> customers = new ArrayList<>();
-
+    private void loadFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(CUSTOMERS_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -67,7 +61,16 @@ public class CustomerManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        return customers;
+    private void saveToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CUSTOMERS_FILE))) {
+            for (Customer customer : customers) {
+                writer.write(customer.getCustomerId() + "," + customer.getFirstName() + "," + customer.getLastName() + "," + customer.getAddress());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

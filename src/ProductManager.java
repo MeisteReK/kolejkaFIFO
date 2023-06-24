@@ -8,23 +8,46 @@ import java.util.List;
 
 public class ProductManager {
     private static final String PRODUCTS_FILE = "products.csv"; // Plik CSV przechowujący produkty
+    private List<Product> products;
+
+    public ProductManager() {
+        products = new ArrayList<>();
+        loadFromFile();
+    }
 
     public void addProduct(Product product) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(PRODUCTS_FILE, true))) {
-            writer.write(product.getProductId() + "," + product.getName() + "," + product.getPrice() + "," + product.getQuantity());
-            writer.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        products.add(product);
+        saveProductsToFile();
     }
 
     public void deleteProduct(String productId) {
-        List<Product> products = getAllProducts();
-
-        // Usuń produkt o wskazanym productId
         products.removeIf(product -> product.getProductId().equals(productId));
+        saveProductsToFile();
+    }
 
-        // Zapisz zmienioną zawartość do pliku CSV
+    public void displayAllProducts() {
+        for (Product product : products) {
+            System.out.println("Product ID: " + product.getProductId());
+            System.out.println("Name: " + product.getName());
+            System.out.println("Price: " + product.getPrice());
+            System.out.println("Quantity: " + product.getQuantity());
+            System.out.println("-------------------------");
+        }
+    }
+
+    public void updateProduct(String productId, String newName, double newPrice, int newQuantity) {
+        for (Product product : products) {
+            if (product.getProductId().equals(productId)) {
+                product.setName(newName);
+                product.setPrice(newPrice);
+                product.setQuantity(newQuantity);
+                break;
+            }
+        }
+        saveProductsToFile();
+    }
+
+    private void saveProductsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(PRODUCTS_FILE))) {
             for (Product product : products) {
                 writer.write(product.getProductId() + "," + product.getName() + "," + product.getPrice() + "," + product.getQuantity());
@@ -35,9 +58,7 @@ public class ProductManager {
         }
     }
 
-    public List<Product> getAllProducts() {
-        List<Product> products = new ArrayList<>();
-
+    private void loadFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(PRODUCTS_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -55,7 +76,5 @@ public class ProductManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return products;
     }
 }

@@ -19,6 +19,10 @@ public class OrderQueue {
         return queue.peek();
     }
 
+    public void removeOrder(Order order) {
+        queue.remove(order);
+    }
+
     public void displayAllOrders() {
         for (Order order : queue) {
             System.out.println("Order ID: " + order.getOrderId());

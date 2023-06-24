@@ -16,9 +16,8 @@ public class Main {
         Order order4 = new Order("4", "Procesor", 4);
         orderQueue.enqueue(order4);
 
-        //orderQueue.displayAllOrders();
 
-        Order processedOrder = orderQueue.dequeue();
+        /*Order processedOrder = orderQueue.dequeue();
         System.out.println("Processed Order: " + processedOrder.getOrderId() + ", " + processedOrder.getProductName());
 
         Order nextOrder = orderQueue.peek();
@@ -34,23 +33,29 @@ public class Main {
         System.out.println("Processed Order: " + processedOrder3.getOrderId() + ", " + processedOrder3.getProductName());
 
         Order nextOrder3 = orderQueue.peek();
-        System.out.println("Next Order: " + nextOrder3.getOrderId() + ", " + nextOrder3.getProductName());
+        System.out.println("Next Order: " + nextOrder3.getOrderId() + ", " + nextOrder3.getProductName());*/
+
 
         // Przykład zarządzania produktami
         ProductManager productManager = new ProductManager();
 
         //Product product1 = new Product("1", "Myszka", 149.99, 20);
         //productManager.addProduct(product1);
+        //.updateProduct("1","PC", 2000.00,22);
+
+        //productManager.displayAllProducts();
+
         //productManager.deleteProduct("1");
 
 
-        // Przykład zarządzania klientami
+
+        //Przykład zarządzania klientami
         CustomerManager customerManager = new CustomerManager();
 
         //Customer customer2 = new Customer("2", "konrad", "Kowalski", "Rzeszow");
         //customerManager.addCustomer(customer2);
-        //customerManager.deleteCustomer("2");
-        //customerManager.displayAllCustomers();
+
+
 
 
 

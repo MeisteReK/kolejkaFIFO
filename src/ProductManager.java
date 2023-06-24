@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductManager {
-    private static final String PRODUCTS_FILE = "products.csv"; // Plik CSV przechowujący produkty
+    private static final String PRODUCTS_FILE = "products.csv";
     private List<Product> products;
 
     public ProductManager() {

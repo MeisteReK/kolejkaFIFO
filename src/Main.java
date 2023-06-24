@@ -10,11 +10,14 @@ public class Main {
         Order order2 = new Order("2", "Klawiatura", 1);
         orderQueue.enqueue(order2);
 
-        Order order3 = new Order("3", "Monitor", 6);
-        orderQueue.enqueue(order3);
+        //Order order3 = new Order("3", "Monitor", 6);
+        //orderQueue.enqueue(order3);
 
-        Order order4 = new Order("4", "Procesor", 4);
-        orderQueue.enqueue(order4);
+        //Order order4 = new Order("4", "Procesor", 4);
+        //orderQueue.enqueue(order4);
+
+
+        orderQueue.displayAllOrders();
 
 
         /*Order processedOrder = orderQueue.dequeue();

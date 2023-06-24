@@ -32,5 +32,14 @@ public class OrderQueue {
         }
     }
 
+    public void editOrder(Order order, String newOrderId, String newProductName, int newQuantity) {
+        if (queue.contains(order)) {
+            queue.remove(order);
+            order.setOrderId(newOrderId);
+            order.setProductName(newProductName);
+            order.setQuantity(newQuantity);
+            queue.add(order);
+        }
+    }
 
 }
